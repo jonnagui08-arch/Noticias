@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias Internacionales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Fondo oscuro para el efecto de noticias */
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(66, 153, 225, 0.1) 0%, rgba(26, 32, 44, 1) 70%);
+            animation: pulse 10s infinite alternate;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-white">Gemini News</a>
+            <nav class="hidden md:flex space-x-6 text-gray-400 font-medium">
+                <!-- Se han agregado los IDs de las secciones a los enlaces -->
+                <a href="#inicio" class="hover:text-blue-400 transition duration-300">Inicio</a>
+                <a href="#internacional" class="hover:text-blue-400 transition duration-300">Internacional</a>
+                <a href="#tecnologia" class="hover:text-blue-400 transition duration-300">Tecnología</a>
+                <a href="#deportes" class="hover:text-blue-400 transition duration-300">Deportes</a>
+                <a href="#cultura" class="hover:text-blue-400 transition duration-300">Cultura</a>
+            </nav>
+            <button class="md:hidden text-gray-400 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Seccion de Inicio -->
+        <section id="inicio" class="mb-12">
+            <h1 class="text-4xl font-extrabold text-white mb-8">Últimas Noticias</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Noticia 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/2563EB/ffffff?text=Avances+Tecnol%C3%B3gicos" alt="Imagen de avances tecnológicos" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Tecnología</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">La IA revoluciona la medicina con diagnósticos más rápidos</h2>
+                        <p class="mt-4 text-gray-600 text-sm">Un nuevo estudio muestra cómo los algoritmos de inteligencia artificial están superando a los métodos tradicionales en la detección temprana de enfermedades.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 2 horas</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Noticia 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/991B1B/ffffff?text=Descubrimiento+Cient%C3%ADfico" alt="Imagen de un telescopio o descubrimiento científico" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-red-700 uppercase tracking-wide">Ciencia</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Hallan nueva evidencia de agua líquida en Marte</h2>
+                        <p class="mt-4 text-gray-600 text-sm">Científicos de la NASA confirman el descubrimiento de vastos depósitos de hielo subterráneo, lo que abre nuevas posibilidades para futuras misiones tripuladas.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 5 horas</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Noticia 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/065F46/ffffff?text=Econom%C3%ADa+Global" alt="Imagen de gráficos de economía global" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-green-700 uppercase tracking-wide">Economía</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Los mercados globales se recuperan tras un período de inestabilidad</h2>
+                        <p class="mt-4 text-gray-600 text-sm">El optimismo regresa a los inversionistas luego de que los principales indicadores bursátiles mostraran un crecimiento sostenido durante el último mes.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 1 día</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Noticia 4 - Añadida -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/8B5CF6/ffffff?text=Descubrimiento+Espacial" alt="Imagen de un descubrimiento espacial" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-purple-600 uppercase tracking-wide">Astronomía</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Descubren un exoplaneta con potencial de vida a 20 años luz</h2>
+                        <p class="mt-4 text-gray-600 text-sm">Científicos de la Agencia Espacial Europea anuncian el hallazgo de un planeta rocoso en la zona habitable de su estrella.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 3 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seccion Internacional -->
+        <section id="internacional" class="mb-12 pt-12">
+            <h2 class="text-4xl font-extrabold text-white mb-8">Internacional</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Noticia Internacional 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/DC2626/ffffff?text=Cumbres+Mundiales" alt="Imagen de un edificio de gobierno o una cumbre mundial" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-red-600 uppercase tracking-wide">Política</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Líderes mundiales firman acuerdo histórico sobre el clima</h2>
+                        <p class="mt-4 text-gray-600 text-sm">El pacto busca reducir las emisiones de carbono y proteger los ecosistemas, con objetivos ambiciosos para los próximos años.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 10 horas</span>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Noticia Internacional 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/F59E0B/ffffff?text=Crisis+Humanitaria" alt="Imagen de una persona en una crisis humanitaria" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-yellow-600 uppercase tracking-wide">Humanitaria</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">La ONU lanza una alerta urgente por la crisis alimentaria en la región</h2>
+                        <p class="mt-4 text-gray-600 text-sm">Millones de personas están en riesgo de hambruna debido a conflictos y el cambio climático, solicitando ayuda internacional inmediata.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 1 día</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion Tecnologia -->
+        <section id="tecnologia" class="mb-12 pt-12">
+            <h2 class="text-4xl font-extrabold text-white mb-8">Tecnología</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <!-- Noticia Tecnología 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/1D4ED8/ffffff?text=Innovacion+en+M%C3%B3viles" alt="Imagen de un teléfono móvil futurista" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-blue-700 uppercase tracking-wide">Gadgets</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Se presenta el primer móvil con batería de grafeno</h2>
+                        <p class="mt-4 text-gray-600 text-sm">Este nuevo dispositivo promete revolucionar el mercado con una carga ultrarrápida que dura hasta una semana.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 12 horas</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Noticia Tecnología 2 - Añadida -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/94A3B8/ffffff?text=Videojuegos" alt="Imagen de un controlador de videojuegos" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Videojuegos</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Los eSports se consolidan como un deporte profesional</h2>
+                        <p class="mt-4 text-gray-600 text-sm">La industria de los eSports experimenta un crecimiento exponencial, atrayendo a millones de espectadores en todo el mundo.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 8 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion Deportes -->
+        <section id="deportes" class="mb-12 pt-12">
+            <h2 class="text-4xl font-extrabold text-white mb-8">Deportes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Noticia Deportes 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/15803D/ffffff?text=Partidos" alt="Imagen de un partido de fútbol" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-green-700 uppercase tracking-wide">Fútbol</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">El equipo local gana el campeonato con una victoria dramática</h2>
+                        <p class="mt-4 text-gray-600 text-sm">El partido se decidió en los últimos minutos con un gol que quedará en la historia del club.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 1 día</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Noticia Deportes 2 - Añadida -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/1E40AF/ffffff?text=Atletismo" alt="Imagen de un atleta corriendo en una pista" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-blue-700 uppercase tracking-wide">Atletismo</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Atleta rompe el récord mundial en la maratón de la ciudad</h2>
+                        <p class="mt-4 text-gray-600 text-sm">El deportista asombró a la audiencia con una actuación sin precedentes, superando la marca anterior por varios segundos.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 15 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion Cultura -->
+        <section id="cultura" class="mb-12 pt-12">
+            <h2 class="text-4xl font-extrabold text-white mb-8">Cultura</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Noticia Cultura 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/9333EA/ffffff?text=Evento+de+Arte" alt="Imagen de una exposición de arte" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-purple-600 uppercase tracking-wide">Arte</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">La exposición de arte moderno bate récords de asistencia</h2>
+                        <p class="mt-4 text-gray-600 text-sm">Los visitantes elogian la originalidad de las obras y la curaduría de la exposición, que estará disponible hasta fin de mes.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 18 horas</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Noticia Cultura 2 - Añadida -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/3B82F6/ffffff?text=Evento+de+Teatro" alt="Imagen de un escenario de teatro" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Teatro</span>
+                        <h2 class="mt-2 text-xl font-bold text-gray-900 leading-tight">Estreno de una obra de teatro clásica con un enfoque moderno</h2>
+                        <p class="mt-4 text-gray-600 text-sm">Una compañía de teatro local sorprende a la crítica con su innovadora interpretación de una obra de Shakespeare, agotando las entradas para todas las funciones.</p>
+                        <div class="mt-6 flex items-center text-gray-500 text-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Hace 6 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Gemini News. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-4 mt-4 text-sm">
+                <a href="#" class="hover:text-blue-400">Política de Privacidad</a>
+                <a href="#" class="hover:text-blue-400">Términos de Uso</a>
+                <a href="#" class="hover:text-blue-400">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
