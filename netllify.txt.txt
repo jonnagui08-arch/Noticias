@@ -1,0 +1,5 @@
+Lo que entendi que Netlify, funciona como una nube para guardar proyectos de desarrollo web y aplicaciones, permitiendo a los
+ desarrolladoes subir la carpeta al sitio para que sea visible en internet, ofrece caracteristicas como el despligue
+ continuo desde un repositorio de git, alojamiento global para sitios web y herramientas para funciones sin servidor,
+ ademas proporciona sertificados SSL gratuitos para una conexion segura También se integra con servicios de terceros como
+ CMS sin cabeza y maneja automáticamente los formularios, simplificando el desarrollo
