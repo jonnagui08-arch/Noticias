@@ -1,0 +1,232 @@
+{
+  "name": "Por favor que sea este",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16035f1a-e9e4-4ad9-8894-63454baf8f43",
+              "name": "titulo",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "3495fd5d-87b9-415c-8eb1-62f68a04a2c3",
+              "name": "texto",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "075b039a-e900-415d-b3b1-5fa131007dce",
+              "name": "resumen",
+              "value": "={{ $json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "394786aa-5114-4b60-be84-22b5f5da3433",
+              "name": "URL",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "8e82eee0-5d2d-4759-a37c-d43ca98139c7",
+              "name": "idioma",
+              "value": "={{ $json.language }}",
+              "type": "string"
+            },
+            {
+              "id": "6735faf1-4695-43e6-bb87-aadb1e822a49",
+              "name": "imagen",
+              "value": "={{ $json.image }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        144,
+        0
+      ],
+      "id": "c919a1fc-6a81-4b19-9dd1-d1369e4c2e16",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "url": "https://api.worldnewsapi.com/search-news",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "titulo",
+              "value": "Esto es una prueba "
+            },
+            {
+              "name": "language",
+              "value": "=es"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "336e803ef52d4f60b010940d3aeb6a06"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -336,
+        0
+      ],
+      "id": "c4916423-a5d2-41f5-8bf6-91f08006bf68",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        368,
+        0
+      ],
+      "id": "1efd64de-6aa9-438e-928c-9dc34ff6540e",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "path": "/noticia",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -544,
+        0
+      ],
+      "id": "d9c82f2b-8fc2-40fd-bb17-783cc8c6da01",
+      "name": "Webhook",
+      "webhookId": "686dca25-a02a-424c-ab54-3a108539e9a3"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "news",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        0
+      ],
+      "id": "de7ac21a-7257-4ae9-88a4-7e52d72931fe",
+      "name": "Split Out"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "jonaguilar.app.n8n.cloud",
+            "user-agent": "Apidog/1.0.0 (https://apidog.com)",
+            "accept": "*/*",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1; subreqs=1",
+            "cf-connecting-ip": "200.107.126.225",
+            "cf-ew-via": "15",
+            "cf-ipcountry": "GT",
+            "cf-ray": "980b0e4240847af9-IAD",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "n8n.cloud",
+            "x-forwarded-for": "200.107.126.225, 104.23.211.88",
+            "x-forwarded-host": "jonaguilar.app.n8n.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "traefik-prod-users-gwc-77-7df8c744bc-s67wc",
+            "x-is-trusted": "yes",
+            "x-real-ip": "200.107.126.225"
+          },
+          "params": {},
+          "query": {},
+          "body": {},
+          "webhookUrl": "https://jonaguilar.app.n8n.cloud/webhook/noticia",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "faa0d0d3-4117-4e1c-ae35-02660f61fe3b",
+  "meta": {
+    "instanceId": "7c522e297fac3aa2ac6e9fc47ff9e0dae1cd31418e55d28d4c7b5d10f3848228"
+  },
+  "id": "qbQayVj6H6xaPPwK",
+  "tags": []
+}
